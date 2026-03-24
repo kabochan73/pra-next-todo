@@ -1,3 +1,5 @@
+import TodoForm from "./components/TodoForm";
+
 type Todo = {
   id: number;
   title: string;
@@ -13,6 +15,7 @@ export default async function Home() {
   return (
     <main className="max-w-xl mx-auto py-16 px-4">
       <h1 className="text-2xl font-bold mb-6">Todo一覧</h1>
+      <TodoForm />
       <ul className="space-y-2">
         {todos.map((todo) => (
           <li
