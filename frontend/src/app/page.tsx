@@ -1,4 +1,5 @@
 import TodoForm from "./components/TodoForm";
+import TodoItem from "./components/TodoItem";
 
 type Todo = {
   id: number;
@@ -18,16 +19,7 @@ export default async function Home() {
       <TodoForm />
       <ul className="space-y-2">
         {todos.map((todo) => (
-          <li
-            key={todo.id}
-            className="flex items-center gap-3 p-3 border rounded"
-          >
-            <span
-              className={todo.completed ? "line-through text-gray-400" : ""}
-            >
-              {todo.title}
-            </span>
-          </li>
+          <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
     </main>

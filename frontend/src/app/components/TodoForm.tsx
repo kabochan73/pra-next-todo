@@ -7,7 +7,7 @@ export default function TodoForm() {
   const [title, setTitle] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!title.trim()) return;
 
