@@ -1,5 +1,5 @@
 import TodoForm from "./components/TodoForm";
-import TodoItem from "./components/TodoItem";
+import TodoList from "./components/TodoList";
 
 type Todo = {
   id: number;
@@ -17,11 +17,7 @@ export default async function Home() {
     <main className="max-w-xl mx-auto py-16 px-4">
       <h1 className="text-2xl font-bold mb-6">Todo一覧</h1>
       <TodoForm />
-      <ul className="space-y-2">
-        {todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo} />
-        ))}
-      </ul>
+      <TodoList todos={todos} />
     </main>
   );
 }
