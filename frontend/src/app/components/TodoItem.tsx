@@ -18,6 +18,13 @@ export default function TodoItem({ todo }: { todo: Todo }) {
     router.refresh();
   };
 
+  const handleDelete = async () => {
+    await fetch(`http://localhost:8000/api/todos/${todo.id}`, {
+      method: "DELETE",
+    });
+    router.refresh();
+  };
+
   return (
     <li className="flex items-center gap-3 p-3 border rounded">
       <input
@@ -26,9 +33,15 @@ export default function TodoItem({ todo }: { todo: Todo }) {
         onChange={handleToggle}
         className="w-4 h-4 cursor-pointer"
       />
-      <span className={todo.completed ? "line-through text-gray-400" : ""}>
+      <span className={`flex-1 ${todo.completed ? "line-through text-gray-400" : ""}`}>
         {todo.title}
       </span>
+      <button
+        onClick={handleDelete}
+        className="text-red-400 hover:text-red-600"
+      >
+        削除
+      </button>
     </li>
   );
 }
